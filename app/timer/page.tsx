@@ -86,26 +86,14 @@ const CosmicTimer = () => {
 
   return (
     <div className="min-h-screen bg-[url(/background.jpg)] bg-cover flex items-center justify-center relative overflow-hidden">
-      
       <motion.div
-        className="relative z-10 bg-black bg-opacity-20 backdrop-blur-2xl border border-white border-opacity-10 rounded-3xl p-12 text-center shadow-2xl max-w-md w-full mx-4"
+        onClick={openEditModal}
+        className="relative cursor-pointer z-10 hover:scale-110 transition-all duration-300 bg-white/10 backdrop-blur-lg border border-white border-opacity-10 rounded-3xl p-12 text-center shadow-2xl max-w-md w-full mx-4"
         initial={{ opacity: 0, scale: 0.8, y: 50 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <div className="mb-8">
-          <div className="flex items-center justify-center gap-4 mb-3">
-            <p className="text-white text-sm opacity-80">Target Time</p>
-            <button
-              onClick={openEditModal}
-              className="bg-white bg-opacity-10 hover:bg-opacity-20 text-white px-3 py-1 rounded-full text-xs font-medium transition-all duration-300 flex items-center gap-1"
-            >
-              ✏️ Edit
-            </button>
-          </div>
-        </div>
-
-        <TimerDisplay 
+        <TimerDisplay
           time={time}
           targetTime={targetTime}
           isRunning={isRunning}
@@ -114,13 +102,13 @@ const CosmicTimer = () => {
           formatTime={formatTime}
         />
 
-        <TimerControls 
+        <TimerControls
           isRunning={isRunning}
           handleStart={handleStart}
           handleRestart={handleRestart}
         />
 
-        <EditTargetModal 
+        <EditTargetModal
           showEditModal={showEditModal}
           customHours={customHours}
           customMinutes={customMinutes}
@@ -133,10 +121,7 @@ const CosmicTimer = () => {
           formatTime={formatTime}
         />
 
-        <CompletionPopup 
-          showPopup={showPopup} 
-          setShowPopup={setShowPopup} 
-        />
+        <CompletionPopup showPopup={showPopup} setShowPopup={setShowPopup} />
       </motion.div>
     </div>
   );

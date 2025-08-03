@@ -56,9 +56,9 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className="min-h-screen bg-[url(/background2.jpg)] bg-cover flex items-center justify-center p-4">
-      <div className="w-full max-w-4xl bg-white/10 backdrop-blur-lg rounded-3xl shadow-2xl border border-white/20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-8">
+    <div className="min-h-screen bg-[url(/background2.jpg)] bg-cover flex items-center justify-center p-4 ">
+      <div className="w-full max-w-4xl bg-white/10 backdrop-blur-lg rounded-3xl shadow-2xl border border-white/20  mt-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-md:gap-4 p-8 max-md:p-5 ">
           <ProfilePhotoSection
             editMode={editMode}
             previewUrl={previewUrl}
@@ -68,14 +68,14 @@ export default function ProfilePage() {
             handlePhotoChange={handlePhotoChange}
             setEditMode={setEditMode}
           />
-          
+
           <div className="md:col-span-2">
             {editMode ? (
               <EditableProfileInfo
-          userData={userData}
-          handleChange={handleChange}
-          handleSave={handleSave}
-          setEditMode={setEditMode}
+                userData={userData}
+                handleChange={handleChange}
+                handleSave={handleSave}
+                setEditMode={setEditMode}
               />
             ) : (
               <StaticProfileInfo userData={userData} />
