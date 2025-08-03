@@ -11,20 +11,17 @@ interface TimerDisplayProps {
   formatTime: (seconds: number) => string;
 }
 
-const TimerDisplay: React.FC<TimerDisplayProps> = ({
+export default function TimerDisplay({
   time,
   isRunning,
   isComplete,
   progressPercentage,
-  formatTime
-}) => {
+  formatTime,
+}: TimerDisplayProps) {
   return (
     <div className="mb-8 flex justify-center">
       <div className="relative w-48 h-48">
-        <svg
-          className="transform -rotate-90 w-48 h-48"
-          viewBox="0 0 100 100"
-        >
+        <svg className="transform -rotate-90 w-48 h-48" viewBox="0 0 100 100">
           <circle
             cx="50"
             cy="50"
@@ -63,13 +60,7 @@ const TimerDisplay: React.FC<TimerDisplayProps> = ({
           />
 
           <defs>
-            <linearGradient
-              id="gradient"
-              x1="0%"
-              y1="0%"
-              x2="100%"
-              y2="100%"
-            >
+            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#22d3ee" />
               <stop offset="50%" stopColor="#3b82f6" />
               <stop offset="100%" stopColor="#8b5cf6" />
@@ -99,5 +90,3 @@ const TimerDisplay: React.FC<TimerDisplayProps> = ({
     </div>
   );
 };
-
-export default TimerDisplay;

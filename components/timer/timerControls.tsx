@@ -6,11 +6,11 @@ interface TimerControlsProps {
   handleRestart: () => void;
 }
 
-const TimerControls: React.FC<TimerControlsProps> = ({
+export default function TimerControls({
   isRunning,
   handleStart,
-  handleRestart
-}) => {
+  handleRestart,
+}: TimerControlsProps) {
   return (
     <div className="flex gap-4 justify-center">
       <button
@@ -42,4 +42,3 @@ const TimerControls: React.FC<TimerControlsProps> = ({
   );
 };
 
-export default TimerControls;

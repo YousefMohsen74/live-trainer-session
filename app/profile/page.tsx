@@ -1,8 +1,8 @@
 'use client'
 import { useState, useEffect, useRef } from 'react';
-import ProfilePhotoSection from '@/components/profilePhotoSection';
-import EditableProfileInfo from '@/components/editableProfileInfo';
-import StaticProfileInfo from '@/components/staticProfileInfo';
+import ProfilePhotoSection from "@/components/profile/profilePhotoSection";
+import EditableProfileInfo from "@/components/profile/editableProfileInfo";
+import StaticProfileInfo from "@/components/profile/staticProfileInfo";
 
 export default function ProfilePage() {
   const [userData, setUserData] = useState({

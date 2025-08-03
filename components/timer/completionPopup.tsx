@@ -6,15 +6,15 @@ interface CompletionPopupProps {
   setShowPopup: (value: boolean) => void;
 }
 
-const CompletionPopup: React.FC<CompletionPopupProps> = ({
+export default function CompletionPopup({
   showPopup,
-  setShowPopup
-}) => {
+  setShowPopup,
+}: CompletionPopupProps) {
   return (
     <AnimatePresence>
       {showPopup && (
         <motion.div
-          className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 z-50"
+          className="fixed top-0 left-0 w-full h-full flex items-center justify-center  bg-opacity-50 z-50"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -32,7 +32,10 @@ const CompletionPopup: React.FC<CompletionPopupProps> = ({
               The timer has reached the target time.
             </p>
             <button
-              onClick={() => setShowPopup(false)}
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowPopup(false);
+              }}
               className="mt-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all duration-300"
             >
               Close
@@ -44,4 +47,3 @@ const CompletionPopup: React.FC<CompletionPopupProps> = ({
   );
 };
 
-export default CompletionPopup;

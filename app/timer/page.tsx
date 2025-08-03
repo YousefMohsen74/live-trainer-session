@@ -2,12 +2,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
-import TimerDisplay from "@/components/timerDisplay";
-import TimerControls from "@/components/timerControls";
-import EditTargetModal from "@/components/editTargetModal";
-import CompletionPopup from "@/components/completionPopup";
+import TimerDisplay from "@/components/timer/timerDisplay";
+import TimerControls from "@/components/timer/timerControls";
+import EditTargetModal from "@/components/timer/editTargetModal";
+import CompletionPopup from "@/components/timer/completionPopup";
 
-const CosmicTimer = () => {
+export default function CosmicTimer() {
   const [time, setTime] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
   const [targetTime, setTargetTime] = useState(60);
@@ -28,8 +28,6 @@ const CosmicTimer = () => {
             setShowPopup(true);
             setTimeout(() => {
               setTime(0);
-              setIsRunning(true);
-              setShowPopup(false);
             }, 1000);
             return newTime;
           }
@@ -88,10 +86,10 @@ const CosmicTimer = () => {
     <div className="min-h-screen bg-[url(/background.jpg)] bg-cover flex items-center justify-center relative overflow-hidden">
       <motion.div
         onClick={openEditModal}
-        className="relative cursor-pointer z-10 hover:scale-110 transition-all duration-300 bg-white/10 backdrop-blur-lg border border-white border-opacity-10 rounded-3xl p-12 text-center shadow-2xl max-w-md w-full mx-4"
-        initial={{ opacity: 0, scale: 0.8, y: 50 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="relative cursor-pointer z-10 hover:scale-110 transition-all  bg-white/10 backdrop-blur-lg border border-white border-opacity-10 rounded-3xl p-12 text-center shadow-2xl max-w-md w-full mx-4"
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, ease: "easeInOut" }}
       >
         <TimerDisplay
           time={time}
@@ -127,4 +125,3 @@ const CosmicTimer = () => {
   );
 };
 
-export default CosmicTimer;

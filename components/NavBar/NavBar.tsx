@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import MobileBar from "./mobileNavBar";
 import { useState } from "react";
+import { MotionDiv } from "../framer-motion/motion";
 
 export default function NavBar() {
   const [show, setShow] = useState(false);
@@ -12,7 +13,24 @@ export default function NavBar() {
   return (
     <>
       <MobileBar setShow={setShow} show={show} />
-      <div className="absolute px-9 top-5 w-full h-20 flex items-center justify-between z-50">
+      <MotionDiv
+        initial={{
+          opacity: 0,
+          translateY: -50,
+          transformPerspective: 1000,
+        }}
+        animate={{
+          opacity: 1,
+          translateY: 0,
+          transformPerspective: 1000,
+        }}
+        transition={{
+          duration: 1.6,
+          ease: "backInOut",
+          staggerChildren: 0.1,
+        }}
+        className="absolute px-9 top-5 w-full h-20 flex items-center justify-between z-50"
+      >
         <div className="relative rounded-full w-10 h-10 bg-black z-40 flex justify-center items-center cursor-pointer">
           <Link href={"/"}>
             <Image src={"/logo.svg"} fill alt="Logo" />
@@ -55,7 +73,7 @@ export default function NavBar() {
         >
           <CiMenuBurger className="w-full h-full text-white" />
         </div>
-      </div>
+      </MotionDiv>
     </>
   );
 }

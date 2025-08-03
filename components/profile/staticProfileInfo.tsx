@@ -1,8 +1,7 @@
-export default function StaticProfileInfo({
-  userData
-}: {
+interface Props {
   userData: { name: string; number: string; bio: string };
-}) {
+}
+export default function StaticProfileInfo({ userData }: Props) {
   return (
     <>
       <h1 className="text-3xl font-bold text-white mb-2">

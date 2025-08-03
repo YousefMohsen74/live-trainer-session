@@ -1,14 +1,6 @@
 import Image from 'next/image';
 
-export default function ProfilePhotoSection({
-  editMode,
-  previewUrl,
-  userData,
-  triggerFileInput,
-  fileInputRef,
-  handlePhotoChange,
-  setEditMode
-}: {
+interface Props {
   editMode: boolean;
   previewUrl: string | null;
   userData: { name: string; photo: string | null };
@@ -16,7 +8,16 @@ export default function ProfilePhotoSection({
   fileInputRef: React.RefObject<HTMLInputElement | null>;
   handlePhotoChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   setEditMode: (mode: boolean) => void;
-}) {
+}
+export default function ProfilePhotoSection({
+  editMode,
+  previewUrl,
+  userData,
+  triggerFileInput,
+  fileInputRef,
+  handlePhotoChange,
+  setEditMode,
+}: Props) {
   return (
     <div className="flex flex-col items-center">
       <div className="relative">
